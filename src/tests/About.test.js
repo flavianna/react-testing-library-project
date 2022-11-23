@@ -20,11 +20,11 @@ describe('Testa se a página contém as informações sobre a Pokédex e...', ()
       const paragraph1 = screen.getByText(
         /one can filter pokémon by type, and see more details for each one of them/i,
       );
-      expect(paragraph1).toBeInTheDocument();
 
       const paragraph2 = screen.getByText(
         /this application simulates a pokédex, a digital encyclopedia containing all pokémon/i,
       );
+      expect(paragraph1).toBeInTheDocument();
       expect(paragraph2).toBeInTheDocument();
     });
   });
@@ -32,10 +32,11 @@ describe('Testa se a página contém as informações sobre a Pokédex e...', ()
   describe('Testa o about e...', () => {
     test('verifica se o atributo src da imagem é https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png', () => {
       renderWithRouter(<About />);
+      const imgUrl = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
       const image = screen.getByRole('img', {
         name: /pokédex/i,
       });
-      expect(image).toBeInTheDocument();
+      expect(image.src).toBe(imgUrl);
     });
   });
 });
