@@ -42,7 +42,7 @@ describe('Testa o componente <Pokemon.js />', () => {
     const { pathname } = window.location;
     expect(pathname).toBe('/');
   });
-  //
+
   test('verifica se existe um ícone de estrela nos Pokémon favoritados', () => {
     renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
